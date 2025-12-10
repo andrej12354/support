@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — MineDime Hosting</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{background-color:#0b0c17;color:#e0e0ff;font-family:'Inter',sans-serif}
+a{transition:.3s ease}a:hover{opacity:.9}
+.card{background:rgba(10,10,30,.75);border:1px solid #7f5af0;border-radius:20px;padding:2rem;transition:transform .4s ease,box-shadow .4s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 0 25px #7f5af0,0 0 35px rgba(127,90,240,.2)}
+.btn{padding:.75rem 1.5rem;border-radius:12px;font-weight:bold;text-decoration:none;display:inline-block;text-align:center;transition:all .3s ease;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,#7f5af0,#9f7cff);color:#fff;box-shadow:0 4px 15px rgba(127,90,240,.4)}
+.btn-primary:hover{background:linear-gradient(90deg,#9f7cff,#7f5af0);box-shadow:0 0 25px #9f7cff}
+.btn-discord{background:#5865F2;color:#fff;text-align:center}
+input,textarea,select{background:rgba(15,15,35,.9);border:1px solid #7f5af0;color:#e0e0ff;border-radius:12px;padding:.75rem;width:100%}
+input:focus,textarea:focus,select:focus{outline:2px solid #7f5af0;outline-offset:2px}
+.section-padding{padding-top:6rem;padding-bottom:6rem}
+.section-title{margin-bottom:2rem;font-size:2rem;font-weight:bold;text-align:center}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.mobile-menu{display:none;position:absolute;top:70px;right:20px;background:rgba(15,15,35,.95);padding:1.2rem;border-radius:15px;border:1px solid #7f5af0;z-index:50}
+.mobile-menu a{display:block;margin:0.5rem 0;color:#e0e0ff;text-align:center;padding:0.5rem;border-radius:10px}
+.mobile-menu a:hover{background:rgba(127,90,240,.2)}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative z-20">
+<a href="index.html" class="flex items-center gap-3">
+<img src="logo.png" class="w-14 h-14 object-contain rounded-lg" alt="MineDime Logo">
+<span class="text-2xl font-extrabold text-white">MineDime Hosting</span>
+</a>
+<nav class="hidden md:flex gap-6 items-center text-sm">
+<a href="products.html" class="hover:underline">Products</a>
+<a href="pricing.html" class="hover:underline">Pricing</a>
+<a href="features.html" class="hover:underline">Features</a>
+<a href="support.html" class="hover:underline">Support</a>
+<a href="#" class="px-4 py-2 bg-indigo-500 rounded text-white">Client Area</a>
+</nav>
+<button id="menu-btn" class="md:hidden px-3 py-2 bg-slate-800 rounded-lg">Menu</button>
+<div id="mobile-menu" class="mobile-menu">
+<a href="products.html">Products</a>
+<a href="pricing.html">Pricing</a>
+<a href="features.html">Features</a>
+<a href="support.html">Support</a>
+<a href="#">Client Area</a>
+</div>
+</header>
+
+<main class="max-w-5xl mx-auto p-6 section-padding fade-up">
+<h1 class="text-4xl font-extrabold mb-4 text-center">Support</h1>
+<p class="text-slate-300 mb-8 text-center">Need help? Reach out via our quick contact form or join our Discord for live support.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="card fade-up flex flex-col justify-between">
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+      <p class="mb-2">Email: <a href="mailto:support@minedime.org" class="underline">support@minedime.org</a></p>
+      <p>Discord: <a href="https://discord.com/invite/jcqgVNNRnX" class="underline text-indigo-400">Join our Discord</a></p>
+    </div>
+    <a href="https://discord.com/invite/jcqgVNNRnX" target="_blank" class="btn btn-discord mt-4 text-center">Join Our Discord</a>
+  </div>
+
+  <div class="card fade-up">
+    <h2 class="text-2xl font-semibold mb-4">Quick Message</h2>
+    <form id="supportForm">
+      <input type="text" id="username" placeholder="Your Name" class="mb-3">
+      <input type="email" id="email" placeholder="Your Email" class="mb-3">
+      <textarea id="message" rows="6" placeholder="Describe your issue..." class="mb-3"></textarea>
+      <button type="submit" class="btn btn-primary w-full">Send Message</button>
+      <p id="formStatus" class="mt-2 text-sm text-green-400"></p>
+    </form>
+  </div>
+</div>
+
+<h2 class="text-3xl font-semibold mt-12 mb-4 text-center">FAQ</h2>
+<div class="space-y-3">
+  <details class="card"><summary class="font-medium cursor-pointer">How do I order a server?</summary><p class="mt-2 text-slate-300">Click an order button or contact us via Discord/email and we'll guide you step by step.</p></details>
+  <details class="card"><summary class="font-medium cursor-pointer">Do you offer DDoS protection?</summary><p class="mt-2 text-slate-300">Yes — all plans include DDoS protection.</p></details>
+</div>
+</main>
+
+<footer class="border-t border-slate-800 mt-12 py-6 text-slate-400 text-sm">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-6 items-center">
+<div><strong>MineDime Hosting</strong></div>
+<div>© MineDime Hosting — All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+// Fade up animation
+const faders=document.querySelectorAll('.fade-up');
+const appearOptions={threshold:.2,rootMargin:"0px 0px -50px 0px"};
+const appearOnScroll=new IntersectionObserver((entries,observer)=>{
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.classList.add('visible');
+observer.unobserve(entry.target)
+})
+},appearOptions);
+faders.forEach(fader=>appearOnScroll.observe(fader));
+
+// Mobile menu toggle
+const menuBtn=document.getElementById('menu-btn');
+const mobileMenu=document.getElementById('mobile-menu');
+menuBtn.addEventListener('click',()=>{
+mobileMenu.style.display=mobileMenu.style.display==='block'?'none':'block';
+});
+
+// Discord webhook submit
+const webhookURL="https://discord.com/api/webhooks/1447651082665984171/f_dDhMtq4-kbNgww2HVQid51hWznZFv7o6jD60R4Ge9mrHrwPfiBWNpbZo_tpAM2UfYT";
+document.getElementById("supportForm").addEventListener("submit", async function(e){
+e.preventDefault();
+const username=document.getElementById("username").value;
+const email=document.getElementById("email").value;
+const message=document.getElementById("message").value;
+if(!username||!email||!message) return alert("Please fill all fields.");
+const payload={content:`**Support Request**\n**Name:** ${username}\n**Email:** ${email}\n**Message:** ${message}`};
+try{
+await fetch(webhookURL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+document.getElementById("formStatus").textContent="Message sent successfully!";
+this.reset();
+}catch(err){
+document.getElementById("formStatus").textContent="Error sending message.";
+console.error(err);
+}
+});
+</script>
+
+</body>
+</html>
